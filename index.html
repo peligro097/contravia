@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CONTRAVIA - Competencia Medellín</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="app-container">
+      
+      <!-- Panel Lateral -->
+      <aside class="sidebar glass-panel">
+        <header>
+          <div class="logo">
+            <span class="logo-icon">🔥</span>
+            <h1>CONTRAVIA</h1>
+          </div>
+          <p class="subtitle">Alleycat Medellín</p>
+        </header>
+
+        <section class="route-stages">
+          <p class="instruction">Ingresa las direcciones de cada etapa. Asegúrate de encender el GPS primero.</p>
+          
+          <div class="stage-card">
+            <label><span class="dot dot-white"></span> Etapa 1 (Tú ➔ P1)</label>
+            <div class="input-group">
+              <input type="text" id="dest1" placeholder="Ej: Parque Lleras">
+              <button class="search-btn" data-target="1" title="Buscar texto">🔍</button>
+              <button class="map-select-btn" data-target="1" title="Desbloquear/Mover en mapa">🎯</button>
+            </div>
+          </div>
+          
+          <div class="stage-card">
+            <label><span class="dot dot-yellow"></span> Etapa 2 (P1 ➔ P2)</label>
+            <div class="input-group">
+              <input type="text" id="dest2" placeholder="Ej: Estadio">
+              <button class="search-btn" data-target="2" title="Buscar texto">🔍</button>
+              <button class="map-select-btn" data-target="2" title="Desbloquear/Mover en mapa">🎯</button>
+            </div>
+          </div>
+          
+          <div class="stage-card">
+            <label><span class="dot dot-red"></span> Etapa 3 (P2 ➔ P3)</label>
+            <div class="input-group">
+              <input type="text" id="dest3" placeholder="Ej: Pueblito Paisa">
+              <button class="search-btn" data-target="3" title="Buscar texto">🔍</button>
+              <button class="map-select-btn" data-target="3" title="Desbloquear/Mover en mapa">🎯</button>
+            </div>
+          </div>
+          
+          <div class="stage-card">
+            <label><span class="dot dot-green"></span> Etapa 4 (P3 ➔ P4)</label>
+            <div class="input-group">
+              <input type="text" id="dest4" placeholder="Ej: Centro Comercial Santafé">
+              <button class="search-btn" data-target="4" title="Buscar texto">🔍</button>
+              <button class="map-select-btn" data-target="4" title="Desbloquear/Mover en mapa">🎯</button>
+            </div>
+          </div>
+
+          <div class="stage-card">
+            <label><span class="dot dot-blue"></span> Etapa 5 (P4 ➔ P5)</label>
+            <div class="input-group">
+              <input type="text" id="dest5" placeholder="Ej: Ciudad del Río">
+              <button class="search-btn" data-target="5" title="Buscar texto">🔍</button>
+              <button class="map-select-btn" data-target="5" title="Desbloquear/Mover en mapa">🎯</button>
+            </div>
+          </div>
+
+          <div class="stage-card">
+            <label><span class="dot dot-purple"></span> Etapa 6 (P5 ➔ P6)</label>
+            <div class="input-group">
+              <input type="text" id="dest6" placeholder="Ej: La 70">
+              <button class="search-btn" data-target="6" title="Buscar texto">🔍</button>
+              <button class="map-select-btn" data-target="6" title="Desbloquear/Mover en mapa">🎯</button>
+            </div>
+          </div>
+
+          <div class="stage-card">
+            <label><span class="dot dot-orange"></span> Etapa 7 (P6 ➔ P7)</label>
+            <div class="input-group">
+              <input type="text" id="dest7" placeholder="Ej: Laureles">
+              <button class="search-btn" data-target="7" title="Buscar texto">🔍</button>
+              <button class="map-select-btn" data-target="7" title="Desbloquear/Mover en mapa">🎯</button>
+            </div>
+          </div>
+
+          <div class="stage-card">
+            <label><span class="dot dot-cyan"></span> Etapa 8 (P7 ➔ Meta)</label>
+            <div class="input-group">
+              <input type="text" id="dest8" placeholder="Ej: Destino Final">
+              <button class="search-btn" data-target="8" title="Buscar texto">🔍</button>
+              <button class="map-select-btn" data-target="8" title="Desbloquear/Mover en mapa">🎯</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="controls">
+          <div class="button-group">
+            <button id="track-location" class="btn secondary-btn">📍 Activar mi GPS (Requerido)</button>
+            <button id="reset-route" class="btn primary-btn">Limpiar Rutas</button>
+          </div>
+        </section>
+
+      </aside>
+
+      <!-- Área Principal del Mapa -->
+      <main class="map-container">
+        <div id="map"></div>
+        <div class="map-watermark">CONTRAVIA</div>
+        <div class="map-overlay">
+          <div class="glass-pill" id="status-pill">Esperando GPS...</div>
+        </div>
+      </main>
+
+    </div>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
